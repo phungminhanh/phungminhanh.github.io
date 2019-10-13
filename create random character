@@ -1,0 +1,31 @@
+namespace Random_String
+{
+    class Program
+    {
+        private string RandomString(int size, bool lowerCase)
+        {
+            StringBuilder sb = new StringBuilder();
+            char c;
+            Random rand = new Random();
+            for(int i = 0; i<size; i++)
+            {
+                c = Convert.Tochar(Convert.ToInt32(rand.Next(65,87)));
+                sb.Append(c);
+            }
+            if(lowerCase)
+            {
+                return sb.ToString().ToLower();
+            }
+            return sb.ToString();
+        }
+        static void Main(String[] args)
+        {
+            Program p = new Program();
+            string s1 = p.RandomString(10,false);
+            Console.WriteLine(s1);
+            string s2 = p.RandomString(50, true);
+            Console.WriteLine(s2);
+            Console.ReadLine();
+        }
+    }
+}
